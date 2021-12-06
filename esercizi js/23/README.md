@@ -5,4 +5,4 @@ Utilizzando l'oggetto `person` stampare in console i suoi valori nel seguente mo
 firstName: Mario
 lastName: Rossi
 age: 25
-```
+``` 
