@@ -3,7 +3,7 @@ Implementare la funzione `memoize` che, data in input la funzione per il calcolo
 
 Esempio:
 ```
-factorial = memoize(factorial);
+factorial = memo ize(factorial);
 console.log(factorial(10)); // Calculating result for 3628800
 console.log(factorial(6)); // Fetching from cache for 720
 console.log(factorial(5)); // Fetching from cache for 120

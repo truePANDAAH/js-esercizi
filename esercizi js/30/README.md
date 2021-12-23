@@ -4,4 +4,4 @@ Implementare la funzione `nicknameMap` che, dato un array di persone, crea un ar
 Esempio:
 ```
 { name: 'Paul', age: 21 } => Paul-21
-```
+``` 
