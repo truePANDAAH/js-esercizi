@@ -1,6 +1,6 @@
 function pow(base) {
   return function (x){
-    return `${x}` ** `${base}`;
+    return x ** base ;
   };
 }
 
