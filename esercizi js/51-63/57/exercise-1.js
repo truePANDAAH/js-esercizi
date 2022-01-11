@@ -20,7 +20,12 @@ const persons = [
 ];
 
 function fetchPersonById(id) {
-  // code here
-}
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(persons.find(item => item.id === id));
+    }, 2000);  
+  })
+};
 
-// code here
+fetchPersonById(3)
+.then(name => console.log(name));

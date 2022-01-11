@@ -34,4 +34,40 @@ const jobs = [
   }
 ];
 
-// core here
+function fetchPersonById(id) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const person = persons.find(item => item.id === id);
+
+      if(person) {
+        resolve (person);
+      } else {
+        reject(new Error(`${id} doesn't exist`))
+      }
+    }, 1000);
+  });
+}
+
+function fetchJobById(id) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const job = jobs.find(item => item.id === id);
+
+      if(job) {
+        resolve (job);
+      } else {
+        reject(new Error(`${id} is not a valid job id`))
+      }
+    }, 500);
+  });
+}
+
+let idPerson = 3;
+let idjob = 5;
+
+Promise.race([
+  fetchPersonById(idPerson),
+  fetchJobById(idjob)
+])
+.then((personFind) => console.log(personFind))
+.catch((err) => console.log(err));
