@@ -1,0 +1,50 @@
+<html>
+  <body>
+    <div id="container">
+      <form>
+        <div>
+          <label>Title</label>
+          <input type="text" id="todo-title" />
+        </div>
+        <div>
+          <label>Completed</label>
+          <input type="checkbox" id="todo-completed" />
+        </div>
+
+        <button type="submit" id="submit-todo">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  "use strict";
+
+  const submitBtn = document.querySelector('#submit-todo');
+
+  const addPost = async () => {
+    event.preventDefault();
+
+    const newPost = {
+      title: document.querySelector('#todo-title').value,
+      completed: document.querySelector('#todo-completed').checked,
+    }
+
+    try {
+      let response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        body: JSON.stringify(newPost),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      });
+
+      let result = await response.json();
+      console.log(result);
+    } catch (error) {
+      console.log(`error: ${error}`);    
+    }
+  }
+  
+  submitBtn.addEventListener('click', addPost);
+</script>
